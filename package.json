@@ -1,6 +1,6 @@
 {
   "name": "vue-layer-map",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "vue-layer-map",
   "main": "./dist/vue-layer-map.js",
   "scripts": {
