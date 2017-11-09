@@ -1,4 +1,4 @@
-## vue-layer
+## vue-layer-map
 install
 ```shell
 npm install vue-layer-map
