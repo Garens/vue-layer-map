@@ -1,7 +1,7 @@
 ## vue-layer
 install
 ```shell
-npm install vue-layer
+npm install vue-layer-map
 ```
 
 ## Quick Start
@@ -9,7 +9,7 @@ npm install vue-layer
 在程序入口添加
 ```js
 import Vue from 'vue';
-import layer from 'vue-layer'
+import layer from 'vue-layer-map'
 Vue.prototype.$layer = layer(Vue);
 ```
 调用
@@ -18,7 +18,7 @@ this.$layer.alert("找不到对象！");
 ```
 
 ## Demo
-http://vue.zuoyan.space/#/component/layer
+http://node.webshao.com
 
 ## Attribut
 ```js

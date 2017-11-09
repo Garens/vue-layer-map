@@ -6,8 +6,8 @@ module.exports = {
   },
   output: {
     path: 'dist',
-    library: 'vue-layer',
-    filename: 'vue-layer.js',
+    library: 'vue-layer-map',
+    filename: 'vue-layer-map.js',
     libraryTarget: 'umd'
   },
   resolve: {
