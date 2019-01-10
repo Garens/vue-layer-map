@@ -17,6 +17,7 @@ let Notification = (function (vue) {
     center: true,   //是否显示在窗口正中心
     move: true,     //是否允许拖动
     min: '',      //最小化方法
+    show: '',     //显示窗体
     taggel: '',   //taggel一个窗体，即显示着则隐藏，隐藏着则显示
     restore: '',    //还原最小化的方法
     tips: [0, {}], //支持上右下左四个方向，通过1-4进行方向设定,可以设定tips: [1, '#c00']
@@ -246,6 +247,37 @@ let Notification = (function (vue) {
       setTimeout(function () {
         let oElm = document.getElementById(id);
         oElm.style.zIndex = zIndex
+      }, 200);
+    }
+  }
+  /**
+   * 显示一个窗体
+   * @param {string} id [窗体id]
+   */
+  self.show = function(id) {
+    let oElm = document.getElementById(id);
+    if (oElm) {
+      if (oElm.style.zIndex == zIndex) {
+        if (oElm.style.display == 'none') {
+          oElm.style.display = 'block';
+        }
+      } else {
+        oElm.style.zIndex = ++zIndex;
+        oElm.style.display = 'block';
+      }
+    } else {
+      setTimeout(function () {
+        let oElm = document.getElementById(id);
+        if (oElm) {
+          if (oElm.style.zIndex == zIndex) {
+            if (oElm.style.display == 'none') {
+              oElm.style.display = 'block';
+            }
+          } else {
+            oElm.style.zIndex = ++zIndex;
+            oElm.style.display = 'block';
+          }
+        }
       }, 200);
     }
   }

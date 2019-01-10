@@ -37,6 +37,8 @@ http://node.webshao.com
   btntool: true,  //是否显示右上角最小化和关闭图标
   center: true,   //是否显示在窗口正中心
   min: '',      //最小化方法
+  show: '',     //显示窗体
+  taggel: '',   //taggel一个窗体，即显示着则隐藏，隐藏着则显示
   restore: '',    //还原最小化的方法
   tips: [0, {}], //支持上右下左四个方向，通过1-4进行方向设定,可以设定tips: [1, '#c00']
   tipsMore: false, //是否允许多个tips
