@@ -2,6 +2,7 @@ var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
+// const vueLoaderConfig = require('./vue-loader.conf')
 
 
 module.exports = {
@@ -14,8 +15,7 @@ module.exports = {
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['', '.js', '.vue'],
-    fallback: [path.join(__dirname, '../node_modules')],
+    extensions: ['.js', '.vue'],
     alias: {
       'vue$': 'vue/dist/vue',
       'src': path.resolve(__dirname, '../src'),
@@ -23,37 +23,15 @@ module.exports = {
       'components': path.resolve(__dirname, '../src/components')
     }
   },
-  resolveLoader: {
-    fallback: [path.join(__dirname, '../node_modules')]
-  },
   module: {
-    preLoaders: [
-      // {
-      //   test: /\.vue$/,
-      //   loader: 'eslint',
-      //   include: projectRoot,
-      //   exclude: /node_modules/
-      // },
-      // {
-      //   test: /\.js$/,
-      //   loader: 'eslint',
-      //   include: projectRoot,
-      //   exclude: /node_modules/
-      // }
-    ],
     loaders: [{
       test: /\.vue$/,
-      loader: 'vue'
-    }, {
+      loader: 'vue-loader'
+    },
+    {
       test: /\.js$/,
-      loader: 'babel',
-      include: projectRoot,
-      exclude: /node_modules/,
-      query: {
-        cacheDirectory: path.resolve(__dirname, '../temp'),
-        plugins: ['transform-runtime'],
-        presets: ['es2015', 'stage-0']
-      }
+      loader: 'babel-loader',
+      include: [path.resolve('src'), path.resolve('test')]
     }, {
       test: /\.json$/,
       loader: 'json'
@@ -79,12 +57,4 @@ module.exports = {
   // eslint: {
   //   formatter: require('eslint-friendly-formatter')
   // },
-  vue: {
-    loaders: utils.cssLoaders(),
-    postcss: [
-      require('autoprefixer')({
-        browsers: ['last 2 versions']
-      })
-    ]
-  }
 };

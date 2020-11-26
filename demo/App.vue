@@ -1,39 +1,38 @@
 <style lang="less">
 .title {
-    height: 30px;
-    line-height: 30px;
-    margin-top: 30px;
-    margin-bottom: 10px;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 </style>
 <template>
-<div id="app" style="width:1000px;margin:100px auto;">
-  <h2 class="title">alert</h2>
-  <el-button type="primary" @click="submitHandle">提交</el-button>
-  <h2 class="title">confirm</h2>
-  <el-button type="primary" @click="confirmHandle">删除</el-button>
-  <h2 class="title">msg</h2>
-  <el-button type="primary" @click="msgHandle">msg</el-button>
-  <el-button type="primary" @click="msg1Handle">带回调</el-button>
-  <h2 class="title">loading</h2>
-  <el-button type="primary" @click="loadingHandle">默认样式</el-button>
-  <el-button type="primary" @click="loading1Handle">第一种样式</el-button>
-  <el-button type="primary" @click="loading2Handle">第二种样式</el-button>
-  <h2 class="title">tips</h2>
-  <el-button type="primary" id="tips" @click="tipsHandle">上</el-button>
-  <el-button type="primary" id="tips1" @click="tips1Handle">右</el-button>
-  <el-button type="primary" id="tips2" @click="tips2Handle">下</el-button>
-  <el-button type="primary" id="tips3" @click="tips3Handle">左-自定义样式</el-button>
-  <h2 class="title">page</h2>
-  <el-button type="primary" id="tips" @click="pageHandle">自定义</el-button>
-  <el-button type="primary" id="tips1" @click="pageHandle1">restore</el-button>
-  <el-button type="primary" id="tips2" @click="pageHandle2">closeAll</el-button>
-  <el-button type="primary" id="tips3" @click="pageHandle3">左-自定义样式</el-button>
-</div>
+  <div id="app" style="width:1000px;margin:100px auto;">
+    <h2 class="title">alert</h2>
+    <el-button type="primary" @click="submitHandle">提交</el-button>
+    <h2 class="title">confirm</h2>
+    <el-button type="primary" @click="confirmHandle">删除</el-button>
+    <h2 class="title">msg</h2>
+    <el-button type="primary" @click="msgHandle">msg</el-button>
+    <el-button type="primary" @click="msg1Handle">带回调</el-button>
+    <h2 class="title">loading</h2>
+    <el-button type="primary" @click="loadingHandle">默认样式</el-button>
+    <el-button type="primary" @click="loading1Handle">第一种样式</el-button>
+    <el-button type="primary" @click="loading2Handle">第二种样式</el-button>
+    <h2 class="title">tips</h2>
+    <el-button type="primary" id="tips" @click="tipsHandle">上</el-button>
+    <el-button type="primary" id="tips1" @click="tips1Handle">右</el-button>
+    <el-button type="primary" id="tips2" @click="tips2Handle">下</el-button>
+    <el-button type="primary" id="tips3" @click="tips3Handle">左-自定义样式</el-button>
+    <h2 class="title">page</h2>
+    <el-button type="primary" id="tips" @click="pageHandle">自定义</el-button>
+    <el-button type="primary" id="tips1" @click="pageHandle1">restore</el-button>
+    <el-button type="primary" id="tips2" @click="pageHandle2">closeAll</el-button>
+    <el-button type="primary" id="tips3" @click="pageHandle3">左-自定义样式</el-button>
+  </div>
 </template>
 
 <script>
-import tools from './js/tools.js';
 import formComp from './form.vue';
 
 export default {
@@ -129,7 +128,7 @@ export default {
         center: true,
         move: false,
         fullScreen: true,
-        close: function(id) {
+        close: function (id) {
           // console.log(123, id);
         }
       });
@@ -147,13 +146,13 @@ export default {
         title: 'asdasd'
       });
     },
-    pageHandle1: function() {
+    pageHandle1: function () {
       this.$layer.restore(this.layernum);
     },
-    pageHandle2: function() {
+    pageHandle2: function () {
       this.$layer.closeAll();
     },
-    pageHandle3: function() {
+    pageHandle3: function () {
       this.$layer.setTop(this.layernum);
     }
   }

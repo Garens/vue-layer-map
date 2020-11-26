@@ -1,17 +1,22 @@
 var utils = require('./utils');
 var webpack = require("webpack");
+var config = require('../config')
+var path = require('path')
+var env = config.build.env
 module.exports = {
   entry: {
     index: './index.js',
   },
   output: {
-    path: 'dist',
+    path: config.build.assetsRoot,
     library: 'vue-layer-map',
     filename: 'vue-layer-map.js',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    // filename: utils.assetsPath('js/[name].js'),
+    // chunkFilename: utils.assetsPath('js/[id].js')
   },
   resolve: {
-    extensions: ['', '.js', '.vue'],
+    extensions: ['.js', '.vue'],
     alias: {
       'vue$': 'vue/dist/vue'
     }
@@ -19,10 +24,10 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.vue$/,
-      loaders: ['vue']
+      loader: 'vue-loader'
     }, {
       test: /\.js$/,
-      loader: 'babel',
+      loader: 'babel-loader',
       query: {
         presets: ['es2015']
       },
@@ -32,20 +37,38 @@ module.exports = {
       loader: "style!css!less"
     }]
   },
-  vue: {
-    loaders: utils.cssLoaders(),
-    postcss: [
-      require('autoprefixer')({
-        browsers: ['last 2 versions']
-      })
-    ]
-  },
   plugins: [
+    // new webpack.DefinePlugin({
+    //   'process.env': env
+    // }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
-      }
+      },
+      sourceMap: true
     }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'vendor',
+    //   minChunks: function (module, count) {
+    //     // any required modules inside node_modules are extracted to vendor
+    //     return (
+    //       module.resource &&
+    //       /\.js$/.test(module.resource) &&
+    //       module.resource.indexOf(
+    //         path.join(__dirname, '../node_modules')
+    //       ) === 0
+    //     )
+    //   }
+    // }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'manifest',
+    //   chunks: ['vendor']
+    // }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false
+    //   }
+    // }),
     // new webpack.ProvidePlugin({//打包第三方库
     //       vue: 'vue'
     //   }),
