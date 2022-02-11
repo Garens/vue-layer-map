@@ -10,7 +10,7 @@
   "dependencies": {
     "ionicons": "^5.2.3",
     "ionicons-vue": "0.0.6",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "pzvue-button": "*",
     "sass": "^1.29.0",
     "sass-loader": "^10.1.0",
